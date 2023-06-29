@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../home_page.dart';
+import '../pages/home_page.dart';
 import '../pages/hourly_page.dart';
 import '../pages/settings_page.dart';
 import '../pages/today_page.dart';

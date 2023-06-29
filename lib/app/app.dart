@@ -8,6 +8,7 @@ class EthioWeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Ethio Weather App",
       theme: ThemeData(
         primarySwatch: Colors.blue,
