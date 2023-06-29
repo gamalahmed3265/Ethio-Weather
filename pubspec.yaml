@@ -31,23 +31,23 @@ dependencies:
   flutter:
     sdk: flutter
 
-  intl: ^0.17.0
-  http: ^0.13.4
-  timeago: ^3.2.2
-  basic_utils: ^4.2.0
-  date_format: ^2.0.6
-  flutter_riverpod: ^1.0.3
-  shared_preferences: ^2.0.13
-  weather_icons: 3.0.0-nullsafety.0
-  font_awesome_flutter: ^10.1.0
-  internet_connection_checker: ^0.0.1+3
-  geolocator: ^8.2.0
-  geocoding: ^2.0.4
-  marquee: ^2.2.1
-  dio: ^4.0.6
-  webview_flutter: ^3.0.4
-  share_plus: ^4.0.10
-  flutter_dotenv: ^5.0.2
+  intl: 
+  http: 
+  timeago: 
+  basic_utils: 
+  date_format: 
+  flutter_riverpod: 
+  shared_preferences: 
+  weather_icons: 
+  font_awesome_flutter: 
+  internet_connection_checker: 
+  geolocator: 
+  geocoding: 
+  marquee: 
+  dio: 
+  webview_flutter: 
+  share_plus: 
+  flutter_dotenv: 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
