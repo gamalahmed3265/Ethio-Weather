@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../presentions/home_page.dart';
+import '../presentions/resource/router.dart';
 
 class EthioWeatherApp extends StatelessWidget {
   const EthioWeatherApp({Key? key}) : super(key: key);
@@ -12,7 +12,8 @@ class EthioWeatherApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(title: 'Ethio Weather'),
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: homePageRoute,
     );
   }
 }
