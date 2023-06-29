@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../providers/providers.dart';
 import '../styles/colors.dart';
 
 enum _SettingsTileType { simple, switchTile }
 
-class SettingsTile extends StatelessWidget {
+class SettingsTile extends ConsumerWidget {
   final String title;
   final String? subtitle;
   final Widget? leading;
@@ -36,18 +38,17 @@ class SettingsTile extends StatelessWidget {
         super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final ThemeData _theme = Theme.of(context);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeProvider = ref.watch(themeChangeNotifierProvider);
+    final _theme = themeProvider.getCurrentTheme();
 
-    final Color _backgroundColor = _theme.brightness == Brightness.light
-        ? primaryLightColor
-        : secondaryLightColor;
-    final Color _titleColor =
-        _theme.brightness == Brightness.light ? Colors.black : Colors.white;
+    final Color _titleColor = _theme.brightness == Brightness.light
+        ? lPrimaryTextColor
+        : dPrimaryTextColor;
     final Color _subtitleColor =
         _theme.brightness == Brightness.light ? Colors.black54 : Colors.white60;
 
-    return androidTile(_backgroundColor, _titleColor, _subtitleColor);
+    return androidTile(_theme.backgroundColor, _titleColor, _subtitleColor);
   }
 
   Widget androidTile(
@@ -61,7 +62,8 @@ class SettingsTile extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8), color: backgroundColor),
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.transparent),
           child: SwitchListTile(
             secondary: leading,
             value: switchValue!,
@@ -85,7 +87,8 @@ class SettingsTile extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8), color: backgroundColor),
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.transparent),
           child: ListTile(
             title: Text(title, style: TextStyle(color: titleColor)),
             subtitle: subtitle != null

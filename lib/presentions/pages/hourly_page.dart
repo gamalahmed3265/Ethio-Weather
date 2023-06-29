@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 import '../styles/colors.dart';
@@ -33,12 +34,13 @@ class _HourlyPageState extends State<HourlyPage> {
                 return Container(
                     padding:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                    child: const Row(
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Expanded(
-                          child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 8.0),
                             child: Text(
                               "2 PM",
                               style: TextStyle(fontSize: 16.0),
@@ -57,7 +59,7 @@ class _HourlyPageState extends State<HourlyPage> {
                           child: Center(
                             child: BoxedIcon(
                               WeatherIcons.day_cloudy,
-                              color: primaryTextColor,
+                              color: lSecondaryLightColor,
                               size: 24.0,
                             ),
                           ),
@@ -96,7 +98,7 @@ class _HourlyPageState extends State<HourlyPage> {
                         width: 0.5,
                       ),
                     ),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -106,11 +108,11 @@ class _HourlyPageState extends State<HourlyPage> {
                           children: <Widget>[
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.thermometer,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -120,7 +122,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -145,11 +147,11 @@ class _HourlyPageState extends State<HourlyPage> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.wind_beaufort_8,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -159,7 +161,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -184,17 +186,18 @@ class _HourlyPageState extends State<HourlyPage> {
                             )
                           ],
                         ),
+                        const Divider(height: 1),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.humidity,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -204,7 +207,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -229,11 +232,11 @@ class _HourlyPageState extends State<HourlyPage> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.sunrise,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -243,7 +246,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -280,12 +283,13 @@ class _HourlyPageState extends State<HourlyPage> {
                 return Container(
                     padding:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-                    child: const Row(
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: const <Widget>[
                         Expanded(
-                          child: Center(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: 8.0),
                             child: Text(
                               "3 PM",
                               style: TextStyle(fontSize: 16.0),
@@ -304,7 +308,7 @@ class _HourlyPageState extends State<HourlyPage> {
                           child: Center(
                             child: BoxedIcon(
                               WeatherIcons.day_cloudy,
-                              color: primaryTextColor,
+                              color: lSecondaryLightColor,
                               size: 24.0,
                             ),
                           ),
@@ -343,7 +347,7 @@ class _HourlyPageState extends State<HourlyPage> {
                         width: 0.5,
                       ),
                     ),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -353,11 +357,11 @@ class _HourlyPageState extends State<HourlyPage> {
                           children: <Widget>[
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.all(2.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.thermometer,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -367,7 +371,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -392,11 +396,11 @@ class _HourlyPageState extends State<HourlyPage> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.wind_beaufort_8,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -406,7 +410,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -431,17 +435,18 @@ class _HourlyPageState extends State<HourlyPage> {
                             )
                           ],
                         ),
+                        const Divider(height: 1.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.humidity,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -451,7 +456,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
@@ -476,11 +481,11 @@ class _HourlyPageState extends State<HourlyPage> {
                             ),
                             Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.all(4.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: <Widget>[
-                                    BoxedIcon(
+                                    const BoxedIcon(
                                       WeatherIcons.sunrise,
                                       color: Colors.blueAccent,
                                       size: 24.0,
@@ -490,7 +495,7 @@ class _HourlyPageState extends State<HourlyPage> {
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: <Widget>[
+                                      children: const <Widget>[
                                         Padding(
                                           padding: EdgeInsets.only(top: 8.0),
                                           child: Text(
