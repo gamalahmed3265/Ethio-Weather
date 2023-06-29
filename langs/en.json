@@ -1,0 +1,83 @@
+{
+    "tab_label_today": "Today",
+    "tab_label_hourly": "Hourly",
+    "tab_label_weekly": "Weekly",
+    "tab_label_settings": "Settings",
+
+    "label_precipitation": "Precipitation",
+    "label_pressure": "Pressure",
+    "label_humidity": "Humidity",
+    "label_wind": "Wind",
+    "label_visibility": "Visibility",
+    "label_uvi": "UV index",
+    "label_feels_like": "Feels Like",
+
+    "label_temp": "Temperature",
+    "label_time_format": "Time Format",
+    "label_weather_units": "Weather Units",
+
+
+    "rain_label_light": "light rain",
+    "rain_label_moderate": "moderate rain",
+    "rain_label_heavy_intensity": "heavy intensity rain",
+    "rain_label_very_heavy": "very heavy rain",
+    "rain_label_extreme": "extreme rain",
+    "rain_label_freezing": "freezing rain",
+    "rain_label_light_intensity_shower": "light intensity shower rain",
+    "rain_label_shower": "shower rain",
+    "rain_label_heavy_intensity_shower": "heavy intensity shower rain",
+    "rain_label_ragged_shower": "ragged shower rain",
+
+    "sky_label_clear_sky": "clear sky",
+
+    "cloud_label_few_clouds": "few clouds",
+    "cloud_label_scattered_clouds": "scattered clouds",
+    "cloud_label_broken_clouds": "broken clouds",
+    "cloud_label_overcast_clouds": "overcast clouds",
+
+    "thunderstorm_label_with_light_rain": "thunderstorm with light rain",
+    "thunderstorm_label_with_rain": "thunderstorm with rain",
+    "thunderstorm_label_with_heavy_rain": "thunderstorm with heavy rain",
+    "thunderstorm_label_light": "thunderstorm light",
+    "thunderstorm_label_thunderstorm": "thunderstorm",
+    "thunderstorm_label_heavy": "thunderstorm heavy",
+    "thunderstorm_label_ragged": "thunderstorm ragged",
+    "thunderstorm_label_with_light_drizzle": "thunderstorm with light drizzle",
+    "thunderstorm_label_with_drizzle": "thunderstorm with drizzle",
+    "thunderstorm_label_with_heavy_drizzle": "thunderstorm with heavy drizzle",
+
+    "drizzle_label_light_intensity": "light intensity drizzle",
+    "drizzle_label_drizzle": "drizzle",
+    "drizzle_label_heavy_intensity": "heavy intensity drizzle",
+    "drizzle_label_light_intensity_rain": "light intensity drizzle rain",
+    "drizzle_label_rain": "drizzle rain",
+    "drizzle_label_heavy_intensity_rain": "heavy intensity drizzle rain",
+    "drizzle_label_shower_rain": "shower rain and drizzle",
+    "drizzle_label_heavy_shower_rain": "heavy shower rain and drizzle",
+    "drizzle_label_shower": "shower drizzle",
+
+    "snow_label_light_snow": "light snow",
+    "snow_label_snow": "snow",
+    "snow_label_heavy_snow": "heavy now",
+    "snow_label_sleet": "sleet",
+    "snow_label_light_shower_sleet": "light shower sleet",
+    "snow_label_shower_sleet": "shower sleet",
+    "snow_label_light_rain_and_snow": "light rain and snow",
+    "snow_label_rain_and_snow": "rain and snow",
+    "snow_label_light_shower_snow": "light shower snow",
+    "snow_label_shower_snow": "shower snow",
+    "snow_label_heavy_shower_snow": "heavy shower snow",
+
+    "atmosphere_label_mist": "mis",
+    "atmosphere_label_smoke": "smoke",
+    "atmosphere_label_haze": "haze",
+    "atmosphere_label_dust_whirls": "dust whirls",
+    "atmosphere_label_fog": "fog",
+    "atmosphere_label_sand": "sand",
+    "atmosphere_label_dust": "dust",
+    "atmosphere_label_volcanic_ash": "volcanic ash",
+    "atmosphere_label_squalls": "squalls",
+    "atmosphere_label_tornado": "tornado"
+
+
+}
