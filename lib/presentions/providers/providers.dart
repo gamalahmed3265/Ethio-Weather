@@ -1,23 +1,32 @@
 import 'package:ethio_weather/presentions/providers/theme_notifier.dart';
+import 'package:ethio_weather/presentions/providers/weather_notifier.dart';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../app/config.dart';
 import '../../data/data_source/remote_data_source.dart';
 import '../../domain/model/open_weather_map.dart';
+import 'connection_notifier.dart';
 
 final themeChangeNotifierProvider = ChangeNotifierProvider((ref) {
   return ThemeNotifier();
 });
 
-// Provider definition - reference to the whole OpenWeatherMapService()
-final openWeatherMapServiceProvider = Provider((ref) {
-  return OpenWeatherMapService();
+final hasInternetConnectionProvider = Provider<bool>((ref) {
+  throw UnimplementedError();
 });
 
-// The FutureProvider will access the API and return OpenWeatherMap weather data
-final openWeatherMapDataProvider = FutureProvider<OpenWeatherMap>((ref) async {
-  return ref
-      .read(openWeatherMapServiceProvider)
-      .geOneCallWeather(Config.ONECALL_API_ENDPOINT_URL.toString());
+// Provider definition - connection listener
+final connectionStateProvider =
+    StateNotifierProvider<ConnectionNotifier, bool>((ref) {
+  final hasInternetConnection = ref.watch(hasInternetConnectionProvider);
+  return ConnectionNotifier(hasInternetConnection);
+});
+
+final openWeatherMapRepositoryProvider = Provider<WeatherRepository>(
+  (ref) => OpenWeatherMapRepository(),
+);
+
+final openWeatherMapNotifierProvider =
+    StateNotifierProvider<OpenWeatherMapNotifier, OpenWeatherMap>((ref) {
+  return OpenWeatherMapNotifier(ref.watch(openWeatherMapRepositoryProvider));
 });

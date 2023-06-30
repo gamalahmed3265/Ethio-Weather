@@ -15,13 +15,4 @@ class FeelsLike {
     morn =
         json["morn"] is int ? (json['morn'] as int).toDouble() : json['morn'];
   }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    data['day'] = this.day;
-    data['night'] = this.night;
-    data['eve'] = this.eve;
-    data['morn'] = this.morn;
-    return data;
-  }
 }
