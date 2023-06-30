@@ -1,13 +1,12 @@
 import 'package:basic_utils/basic_utils.dart';
-
+import 'package:ethio_weather/src/models/current_weather.dart';
+import 'package:ethio_weather/src/models/daily_forecast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_icons/weather_icons.dart';
 
-import '../../domain/model/current_weather.dart';
-import '../../domain/model/daily_forecast.dart';
 import '../providers/providers.dart';
 
 class CurrentWeatherCard extends ConsumerWidget {
@@ -21,6 +20,8 @@ class CurrentWeatherCard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeProvider = ref.watch(themeChangeNotifierProvider);
     final _theme = themeProvider.getCurrentTheme();
+
+    final _userLocation = ref.watch(userLocationNotifierProvider);
 
     return Column(
       children: [
@@ -41,18 +42,18 @@ class CurrentWeatherCard extends ConsumerWidget {
                 children: <Widget>[
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const <Widget>[
-                      Icon(
+                    children: <Widget>[
+                      const Icon(
                         Icons.location_on,
                         color: Colors.red,
                         size: 24,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8.0,
                       ),
                       Text(
-                        'Time Zone: Addis_Ababa',
-                        style: TextStyle(fontSize: 14.0),
+                        _userLocation.userLocation.address,
+                        style: const TextStyle(fontSize: 14.0),
                       ),
                     ],
                   ),
