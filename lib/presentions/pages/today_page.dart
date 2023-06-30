@@ -1,11 +1,10 @@
+import 'package:ethio_weather/src/widgets/hourly_fromnow_weather_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../app/config.dart';
 import '../providers/providers.dart';
 import '../styles/colors.dart';
 import '../widgets/current_weather_card.dart';
-import '../widgets/hourly_fromnow_weather_card.dart';
 import '../widgets/no_internet_connection_card.dart';
 
 class TodayPage extends ConsumerStatefulWidget {
@@ -28,29 +27,18 @@ class _TodayPageState extends ConsumerState<TodayPage>
         ? lPrimaryTextColor
         : dPrimaryTextColor;
 
-    final _openWeatherMap = ref.watch(openWeatherMapNotifierProvider);
-
     final _internetConnected = ref.watch(connectionStateProvider);
 
-    final _userLocation = ref.watch(userLocationProvider);
+    final _oneCallApiWeather = ref.watch(oneCallApiWeatherNotifierProvider);
 
     // Reload weather data when connection is available
-    if (_internetConnected) {
-      if (_openWeatherMap.current == null &&
-          _openWeatherMap.hourly == null &&
-          _openWeatherMap.daily == null) {
-        final apiOneCallUrl = Uri.https(Config.apiBaseUrl, 'data/2.5/onecall', {
-          'lat': _userLocation.latitude.toString(),
-          'lon': _userLocation.longitude.toString(),
-          'appid': Config.appId,
-          'units': 'metric',
-          'lang': 'en',
-        });
-        ref
-            .read(openWeatherMapNotifierProvider.notifier)
-            .getWeather(apiOneCallUrl.toString());
+    ref.listen<bool>(connectionStateProvider, (previous, next) {
+      if (next) {
+        if (_oneCallApiWeather.weather == null) {
+          ref.read(oneCallApiWeatherNotifierProvider).reloadWeather();
+        }
       }
-    }
+    });
 
     final hoursFromNow = DateTime.now().add(const Duration(hours: 4));
     final unixTimestampHoursFromNow =
@@ -58,17 +46,17 @@ class _TodayPageState extends ConsumerState<TodayPage>
 
     return _internetConnected
         ? Stack(children: <Widget>[
-            (_openWeatherMap.current != null &&
-                    _openWeatherMap.hourly != null &&
-                    _openWeatherMap.daily != null)
+            (_oneCallApiWeather.weather != null)
                 ? SingleChildScrollView(
                     child: Container(
                       margin: const EdgeInsets.only(top: 8.0, bottom: 16.0),
                       child: Column(
                         children: [
-                          CurrentWeatherCard(_openWeatherMap.current!,
-                              _openWeatherMap.daily![0]),
-                          HourlyFromNowWeatherCard(_openWeatherMap.hourly,
+                          CurrentWeatherCard(
+                              _oneCallApiWeather.weather!.current!,
+                              _oneCallApiWeather.weather!.daily![0]),
+                          HourlyFromNowWeatherCard(
+                              _oneCallApiWeather.weather!.hourly,
                               unixTimestampHoursFromNow),
                         ],
                       ),

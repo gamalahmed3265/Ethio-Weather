@@ -1,13 +1,12 @@
-import 'package:ethio_weather/presentions/providers/theme_notifier.dart';
-import 'package:ethio_weather/presentions/providers/weather_notifier.dart';
-
+import 'package:ethio_weather/src/models/open_weather_map.dart';
+import 'package:ethio_weather/src/providers/connection_notifier.dart';
+import 'package:ethio_weather/src/providers/onecall_weather_notifier.dart';
+import 'package:ethio_weather/src/providers/theme_notifier.dart';
+import 'package:ethio_weather/src/providers/weather_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../data/data_source/weather_repository.dart';
-import '../../domain/lat_lng.dart';
-import '../../domain/model/open_weather_map.dart';
-
-import 'connection_notifier.dart';
+import '../models/lat_lng.dart';
+import '../services/weather_repository.dart';
 
 final themeChangeNotifierProvider = ChangeNotifierProvider((ref) {
   return ThemeNotifier();
@@ -37,4 +36,9 @@ final openWeatherMapNotifierProvider =
   final userLocation = ref.watch(userLocationProvider);
   final openWeatherMapRepository = ref.watch(openWeatherMapRepositoryProvider);
   return OpenWeatherMapNotifier(openWeatherMapRepository, userLocation);
+});
+
+final oneCallApiWeatherNotifierProvider = ChangeNotifierProvider((ref) {
+  final userLocation = ref.watch(userLocationProvider);
+  return OneCallWeatherNotifier(userLocation);
 });
