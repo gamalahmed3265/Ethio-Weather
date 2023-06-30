@@ -1,9 +1,11 @@
 import 'package:ethio_weather/src/pages/open_licenses_page.dart';
 import 'package:ethio_weather/src/pages/privacy_page.dart';
+import 'package:ethio_weather/src/utils/string_constant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:weather_icons/weather_icons.dart';
 
 import '../locales/app_locale.dart';
@@ -280,7 +282,7 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
                 FontAwesomeIcons.codeBranch,
                 color: _theme.iconTheme.color,
               ),
-              subtitle: "v0.0.1",
+              subtitle: StringConstant.appVersion,
             ),
             Divider(
               color: _theme.scaffoldBackgroundColor,
@@ -292,7 +294,10 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
                 Icons.share,
                 color: _theme.iconTheme.color,
               ),
-              onTap: () {},
+              onTap: () {
+                Share.share(StringConstant.googlePlayStoreUrl,
+                    subject: "Install Ethio Weather App");
+              },
             ),
             const SizedBox(
               height: 8.0,

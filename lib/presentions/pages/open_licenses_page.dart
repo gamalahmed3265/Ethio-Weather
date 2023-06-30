@@ -75,7 +75,7 @@ class OpenLicensesPage extends ConsumerWidget {
                     horizontal: 16.0, vertical: 16.0),
                 child: Column(children: [
                   Text(
-                    StringConstant.appDesingedandDevelopedBy,
+                    StringConstant.appDesignedandDevelopedBy,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16.0),
                   ),
