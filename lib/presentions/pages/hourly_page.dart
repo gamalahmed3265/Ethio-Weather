@@ -128,9 +128,9 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            const BoxedIcon(
+                            BoxedIcon(
                               WeatherIcons.thermometer,
-                              color: Colors.blueAccent,
+                              color: _theme.iconTheme.color,
                               size: 24.0,
                             ),
                             Column(
@@ -213,9 +213,9 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            const BoxedIcon(
+                            BoxedIcon(
                               WeatherIcons.humidity,
-                              color: Colors.blueAccent,
+                              color: _theme.iconTheme.color,
                               size: 24.0,
                             ),
                             Column(
@@ -252,9 +252,9 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            const BoxedIcon(
+                            BoxedIcon(
                               WeatherIcons.sunrise,
-                              color: Colors.blueAccent,
+                              color: _theme.iconTheme.color,
                               size: 24.0,
                             ),
                             Column(
