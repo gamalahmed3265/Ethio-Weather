@@ -28,6 +28,8 @@ class CurrentWeatherCard extends ConsumerWidget {
     final _weatherId = _currentWeather.weather?[0].id;
     final _weatherIcon = _currentWeather.weather?[0].icon;
 
+    const _textSize = 12.0;
+
     return Column(
       children: [
         Container(
@@ -124,9 +126,14 @@ class CurrentWeatherCard extends ConsumerWidget {
                               const SizedBox(
                                 height: 4.0,
                               ),
-                              Text(
-                                "${AppLocalizations.of(context)!.translate("label_feels_like")} ${_currentWeather.feelsLike} °C",
-                                style: const TextStyle(fontSize: 12.0),
+                              SingleChildScrollView(
+                                scrollDirection: Axis.horizontal,
+                                child: Text(
+                                  "${AppLocalizations.of(context)!.translate("label_feels_like")} ${_currentWeather.feelsLike} °C",
+                                  maxLines: 1,
+                                  overflow: TextOverflow.fade,
+                                  style: const TextStyle(fontSize: _textSize),
+                                ),
                               ),
                             ],
                           ),
@@ -164,11 +171,16 @@ class CurrentWeatherCard extends ConsumerWidget {
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                    .translate("label_precipitation") ??
-                                "Precipitation",
-                            style: const TextStyle(fontSize: 11.0),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                      .translate("label_precipitation") ??
+                                  "Precipitation",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: const TextStyle(fontSize: _textSize),
+                            ),
                           ),
                           const SizedBox(
                             height: 8,
@@ -204,11 +216,16 @@ class CurrentWeatherCard extends ConsumerWidget {
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                    .translate("label_humidity") ??
-                                "Humidity",
-                            style: const TextStyle(fontSize: 11.0),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                      .translate("label_humidity") ??
+                                  "Humidity",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: const TextStyle(fontSize: _textSize),
+                            ),
                           ),
                           const SizedBox(
                             height: 8,
@@ -245,11 +262,16 @@ class CurrentWeatherCard extends ConsumerWidget {
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                    .translate("label_wind") ??
-                                "Wind",
-                            style: const TextStyle(fontSize: 11.0),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                      .translate("label_wind") ??
+                                  "Wind",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: const TextStyle(fontSize: _textSize),
+                            ),
                           ),
                           const SizedBox(
                             height: 8,
@@ -293,11 +315,16 @@ class CurrentWeatherCard extends ConsumerWidget {
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                    .translate("label_pressure") ??
-                                "Pressure",
-                            style: const TextStyle(fontSize: 11.0),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                      .translate("label_pressure") ??
+                                  "Pressure",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: const TextStyle(fontSize: _textSize),
+                            ),
                           ),
                           const SizedBox(
                             height: 8,
@@ -336,11 +363,16 @@ class CurrentWeatherCard extends ConsumerWidget {
                           const SizedBox(
                             height: 8,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                    .translate("label_visibility") ??
-                                "Visibility",
-                            style: const TextStyle(fontSize: 11.0),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                      .translate("label_visibility") ??
+                                  "Visibility",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: const TextStyle(fontSize: _textSize),
+                            ),
                           ),
                           const SizedBox(
                             height: 8,
@@ -377,12 +409,15 @@ class CurrentWeatherCard extends ConsumerWidget {
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Text(
-                            AppLocalizations.of(context)!
-                                    .translate("label_uvi") ??
-                                "UV Index",
-                            style: const TextStyle(
-                              fontSize: 11.0,
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Text(
+                              AppLocalizations.of(context)!
+                                      .translate("label_uvi") ??
+                                  "UV Index",
+                              maxLines: 1,
+                              overflow: TextOverflow.fade,
+                              style: const TextStyle(fontSize: _textSize),
                             ),
                           ),
                           const SizedBox(

@@ -26,6 +26,8 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
     with TickerProviderStateMixin<WeeklyPage> {
   List<DailyItem> _dailyForecastItems = <DailyItem>[];
 
+  static const _textSize = 12.0;
+
   @override
   void initState() {
     super.initState();
@@ -136,11 +138,16 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Text(
-                          StringUtils.capitalize(
-                              "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId!)}",
-                              allWords: true),
-                          style: const TextStyle(fontSize: 12.0),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            StringUtils.capitalize(
+                                "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId!)}",
+                                allWords: true),
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            style: const TextStyle(fontSize: _textSize),
+                          ),
                         ),
                         const SizedBox(
                           height: 4.0,
@@ -152,9 +159,14 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                         const SizedBox(
                           height: 4.0,
                         ),
-                        Text(
-                          "${AppLocalizations.of(context)!.translate("label_feels_like")} ${dailyItem.daily.feelsLike?.day}°C",
-                          style: const TextStyle(fontSize: 12.0),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            "${AppLocalizations.of(context)!.translate("label_feels_like")} ${dailyItem.daily.feelsLike?.day}°C",
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            style: const TextStyle(fontSize: _textSize),
+                          ),
                         ),
                       ],
                     ),
@@ -195,29 +207,37 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                             color: _theme.focusColor,
                             size: 20.0,
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                          .translate("label_humidity") ??
-                                      'Humidity',
-                                  style: const TextStyle(fontSize: 14),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_humidity") ??
+                                          'Humidity',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  "${dailyItem.daily.humidity} %",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Text(
+                                    "${dailyItem.daily.humidity} %",
+                                    style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -232,29 +252,37 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                             color: _theme.focusColor,
                             size: 20.0,
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                          .translate("label_uvi") ??
-                                      'UV Index',
-                                  style: const TextStyle(fontSize: 14),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_uvi") ??
+                                          'UV Index',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  "${dailyItem.daily.uvi}",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Text(
+                                    "${dailyItem.daily.uvi}",
+                                    style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -269,29 +297,37 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                          .translate("label_wind") ??
-                                      'Wind',
-                                  style: const TextStyle(fontSize: 14),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_wind") ??
+                                          'Wind',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  "${dailyItem.daily.windSpeed} m/s",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Text(
+                                    "${dailyItem.daily.windSpeed} m/s",
+                                    style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -340,11 +376,16 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                       crossAxisAlignment: CrossAxisAlignment.end,
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Text(
-                          StringUtils.capitalize(
-                              "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId)}",
-                              allWords: true),
-                          style: const TextStyle(fontSize: 12.0),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            StringUtils.capitalize(
+                                "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId)}",
+                                allWords: true),
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            style: const TextStyle(fontSize: _textSize),
+                          ),
                         ),
                         const SizedBox(
                           height: 4.0,
@@ -356,9 +397,14 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                         const SizedBox(
                           height: 4.0,
                         ),
-                        Text(
-                          "${AppLocalizations.of(context)!.translate("label_feels_like")} ${dailyItem.daily.feelsLike?.night}°C",
-                          style: const TextStyle(fontSize: 12.0),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Text(
+                            "${AppLocalizations.of(context)!.translate("label_feels_like")} ${dailyItem.daily.feelsLike?.night}°C",
+                            maxLines: 1,
+                            overflow: TextOverflow.fade,
+                            style: const TextStyle(fontSize: _textSize),
+                          ),
                         ),
                       ],
                     ),
@@ -399,29 +445,37 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                             color: _theme.focusColor,
                             size: 20.0,
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                          .translate("label_humidity") ??
-                                      'Humidity',
-                                  style: const TextStyle(fontSize: 14),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_humidity") ??
+                                          'Humidity',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  "${dailyItem.daily.humidity} %",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Text(
+                                    "${dailyItem.daily.humidity} %",
+                                    style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -436,29 +490,37 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                             color: _theme.focusColor,
                             size: 20.0,
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                          .translate("label_uvi") ??
-                                      'UV Index',
-                                  style: const TextStyle(fontSize: 14),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_uvi") ??
+                                          'UV Index',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  "${dailyItem.daily.uvi}",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Text(
+                                    "${dailyItem.daily.uvi}",
+                                    style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -473,29 +535,37 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  AppLocalizations.of(context)!
-                                          .translate("label_wind") ??
-                                      'Wind',
-                                  style: const TextStyle(fontSize: 14),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_wind") ??
+                                          'Wind',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 4.0),
-                                child: Text(
-                                  "${dailyItem.daily.windSpeed} m/s",
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )
-                            ],
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 4.0),
+                                  child: Text(
+                                    "${dailyItem.daily.windSpeed} m/s",
+                                    style: const TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),

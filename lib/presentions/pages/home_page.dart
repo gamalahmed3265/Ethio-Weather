@@ -52,6 +52,7 @@ class _HomePageState extends ConsumerState<HomePage>
         unselectedFontSize: 14,
         onTap: _onTap,
         currentIndex: _currentIndex,
+        selectedLabelStyle: const TextStyle(overflow: TextOverflow.ellipsis),
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.calendar_today),

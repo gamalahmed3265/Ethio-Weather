@@ -237,9 +237,14 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
                             ),
                           ),
                           ListTile(
-                            title: Text(
-                              "${AppLocalizations.of(context)!.translate("label_time_format")}: 24-hour",
-                              style: TextStyle(color: _titleColor),
+                            title: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Text(
+                                "${AppLocalizations.of(context)!.translate("label_time_format")}: 24-hour",
+                                style: TextStyle(color: _titleColor),
+                                maxLines: 1,
+                                overflow: TextOverflow.fade,
+                              ),
                             ),
                             leading: BoxedIcon(
                               WeatherIcons.time_3,

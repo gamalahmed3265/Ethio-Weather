@@ -25,6 +25,8 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
     with TickerProviderStateMixin<HourlyPage> {
   List<HourlyItem> _hourlyItems = <HourlyItem>[];
 
+  static const _textSize = 12.0;
+
   @override
   void initState() {
     super.initState();
@@ -97,12 +99,17 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(left: 16.0),
-            child: Text(
-                StringUtils.capitalize(
-                    "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId!)}",
-                    allWords: true),
-                style:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Text(
+                  StringUtils.capitalize(
+                      "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId!)}",
+                      allWords: true),
+                  maxLines: 1,
+                  overflow: TextOverflow.fade,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold)),
+            ),
           ),
           Container(
             width: MediaQuery.of(context).size.width,
@@ -142,11 +149,17 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)!
-                                            .translate("label_feels_like") ??
-                                        'Feels Like',
-                                    style: const TextStyle(fontSize: 14),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_feels_like") ??
+                                          'Feels Like',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -181,11 +194,17 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)!
-                                            .translate("label_wind") ??
-                                        'Wind',
-                                    style: const TextStyle(fontSize: 14),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_wind") ??
+                                          'Wind',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -227,11 +246,17 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)!
-                                            .translate("label_humidity") ??
-                                        'Humidity',
-                                    style: const TextStyle(fontSize: 14),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_humidity") ??
+                                          'Humidity',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -266,11 +291,17 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
                               children: <Widget>[
                                 Padding(
                                   padding: const EdgeInsets.only(top: 8.0),
-                                  child: Text(
-                                    AppLocalizations.of(context)!
-                                            .translate("label_uvi") ??
-                                        'UV Index',
-                                    style: const TextStyle(fontSize: 14),
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: Text(
+                                      AppLocalizations.of(context)!
+                                              .translate("label_uvi") ??
+                                          'UV Index',
+                                      maxLines: 1,
+                                      overflow: TextOverflow.fade,
+                                      style:
+                                          const TextStyle(fontSize: _textSize),
+                                    ),
                                   ),
                                 ),
                                 Padding(
