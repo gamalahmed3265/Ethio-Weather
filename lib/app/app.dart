@@ -42,7 +42,8 @@ class _EthioWeatherAppState extends ConsumerState<EthioWeatherApp> {
     final _theme = themeProvider.getCurrentTheme();
 
     return MaterialApp(
-      title: "Ethio Weather App",
+      debugShowCheckedModeBanner: false,
+      title: "Ethio Weather",
       theme: _theme,
       localizationsDelegates: [
         _newLocaleDelegate,
