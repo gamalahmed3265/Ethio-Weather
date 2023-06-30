@@ -8,7 +8,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_icons/weather_icons.dart';
 
+import '../locales/app_localizations.dart';
 import '../providers/providers.dart';
+import '../services/weather_description_locales.dart';
 import '../styles/colors.dart';
 
 class WeeklyPage extends ConsumerStatefulWidget {
@@ -37,6 +39,8 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
   }
 
   ExpansionPanel _buildExpansionPanel(DailyItem dailyItem, ThemeData _theme) {
+    final _weatherId = dailyItem.daily.weather?[0].id;
+
     return ExpansionPanel(
       canTapOnHeader: true,
       backgroundColor: _theme.brightness == Brightness.dark
@@ -134,7 +138,7 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                       children: <Widget>[
                         Text(
                           StringUtils.capitalize(
-                              "${dailyItem.daily.weather?[0].description}",
+                              "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId!)}",
                               allWords: true),
                           style: const TextStyle(fontSize: 12.0),
                         ),
@@ -149,7 +153,7 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                           height: 4.0,
                         ),
                         Text(
-                          "Feels like ${dailyItem.daily.feelsLike?.day}°C",
+                          "${AppLocalizations.of(context)!.translate("label_feels_like")} ${dailyItem.daily.feelsLike?.day}°C",
                           style: const TextStyle(fontSize: 12.0),
                         ),
                       ],
@@ -182,114 +186,114 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            BoxedIcon(
-                              WeatherIcons.humidity,
-                              color: _theme.focusColor,
-                              size: 20.0,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    'Humidity',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          BoxedIcon(
+                            WeatherIcons.humidity,
+                            color: _theme.focusColor,
+                            size: 20.0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                          .translate("label_humidity") ??
+                                      'Humidity',
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    "${dailyItem.daily.humidity} %",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  "${dailyItem.daily.humidity} %",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            BoxedIcon(
-                              WeatherIcons.sunrise,
-                              color: _theme.focusColor,
-                              size: 20.0,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    'UV Index',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          BoxedIcon(
+                            WeatherIcons.sunrise,
+                            color: _theme.focusColor,
+                            size: 20.0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                          .translate("label_uvi") ??
+                                      'UV Index',
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    "${dailyItem.daily.uvi}",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  "${dailyItem.daily.uvi}",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            WindIcon(
-                              degree: num.parse("${dailyItem.daily.windDeg}"),
-                              color: _theme.iconTheme.color,
-                              size: 24.0,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    'Wind',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          WindIcon(
+                            degree: num.parse("${dailyItem.daily.windDeg}"),
+                            color: _theme.iconTheme.color,
+                            size: 24.0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                          .translate("label_wind") ??
+                                      'Wind',
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    "${dailyItem.daily.windSpeed} m/s",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  "${dailyItem.daily.windSpeed} m/s",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     )
                   ],
@@ -338,7 +342,7 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                       children: <Widget>[
                         Text(
                           StringUtils.capitalize(
-                              "${dailyItem.daily.weather?[0].description}",
+                              "${WeatherDescriptionLocales(context).getWeatherDescription(_weatherId)}",
                               allWords: true),
                           style: const TextStyle(fontSize: 12.0),
                         ),
@@ -353,7 +357,7 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                           height: 4.0,
                         ),
                         Text(
-                          "Feels like ${dailyItem.daily.feelsLike?.night}°C",
+                          "${AppLocalizations.of(context)!.translate("label_feels_like")} ${dailyItem.daily.feelsLike?.night}°C",
                           style: const TextStyle(fontSize: 12.0),
                         ),
                       ],
@@ -386,114 +390,114 @@ class _WeeklyPageState extends ConsumerState<WeeklyPage>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            BoxedIcon(
-                              WeatherIcons.humidity,
-                              color: _theme.focusColor,
-                              size: 20.0,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    'Humidity',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          BoxedIcon(
+                            WeatherIcons.humidity,
+                            color: _theme.focusColor,
+                            size: 20.0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                          .translate("label_humidity") ??
+                                      'Humidity',
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    "${dailyItem.daily.humidity} %",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  "${dailyItem.daily.humidity} %",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            BoxedIcon(
-                              WeatherIcons.sunrise,
-                              color: _theme.focusColor,
-                              size: 20.0,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    'UV Index',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          BoxedIcon(
+                            WeatherIcons.sunrise,
+                            color: _theme.focusColor,
+                            size: 20.0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                          .translate("label_uvi") ??
+                                      'UV Index',
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    "${dailyItem.daily.uvi}",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  "${dailyItem.daily.uvi}",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-                            WindIcon(
-                              degree: num.parse("${dailyItem.daily.windDeg}"),
-                              color: _theme.iconTheme.color,
-                              size: 24.0,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    'Wind',
-                                    style: TextStyle(fontSize: 14),
-                                  ),
+                      flex: 4,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          WindIcon(
+                            degree: num.parse("${dailyItem.daily.windDeg}"),
+                            color: _theme.iconTheme.color,
+                            size: 24.0,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                          .translate("label_wind") ??
+                                      'Wind',
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: Text(
-                                    "${dailyItem.daily.windSpeed} m/s",
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4.0),
+                                child: Text(
+                                  "${dailyItem.daily.windSpeed} m/s",
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     )
                   ],

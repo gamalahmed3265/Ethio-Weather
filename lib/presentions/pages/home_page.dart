@@ -1,8 +1,9 @@
+import 'package:ethio_weather/src/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../locales/app_localizations.dart';
 import '../providers/providers.dart';
-import '../resource/router.dart';
 import '../styles/colors.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -51,17 +52,24 @@ class _HomePageState extends ConsumerState<HomePage>
         unselectedFontSize: 14,
         onTap: _onTap,
         currentIndex: _currentIndex,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: "Today",
+            icon: const Icon(Icons.calendar_today),
+            label: AppLocalizations.of(context)!.translate("tab_label_today"),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.lock_clock), label: "Hourly"),
+            icon: const Icon(Icons.lock_clock),
+            label: AppLocalizations.of(context)!.translate("tab_label_hourly"),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_view_week), label: "Weekly"),
+            icon: const Icon(Icons.calendar_view_week),
+            label: AppLocalizations.of(context)!.translate("tab_label_weekly"),
+          ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings"),
+            icon: const Icon(Icons.settings),
+            label:
+                AppLocalizations.of(context)!.translate("tab_label_settings"),
+          ),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
