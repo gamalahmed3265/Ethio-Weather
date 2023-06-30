@@ -32,14 +32,23 @@ class _TodayPageState extends ConsumerState<TodayPage>
 
     final _internetConnected = ref.watch(connectionStateProvider);
 
+    final _userLocation = ref.watch(userLocationProvider);
+
     // Reload weather data when connection is available
     if (_internetConnected) {
-      if (_openWeatherMap.current != null &&
-          _openWeatherMap.hourly != null &&
-          _openWeatherMap.daily != null) {
+      if (_openWeatherMap.current == null &&
+          _openWeatherMap.hourly == null &&
+          _openWeatherMap.daily == null) {
+        final apiOneCallUrl = Uri.https(Config.apiBaseUrl, 'data/2.5/onecall', {
+          'lat': _userLocation.latitude.toString(),
+          'lon': _userLocation.longitude.toString(),
+          'appid': Config.appId,
+          'units': 'metric',
+          'lang': 'en',
+        });
         ref
             .read(openWeatherMapNotifierProvider.notifier)
-            .getWeather(Config.apiOneCallUrl.toString());
+            .getWeather(apiOneCallUrl.toString());
       }
     }
 

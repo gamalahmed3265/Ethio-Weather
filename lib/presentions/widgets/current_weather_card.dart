@@ -204,7 +204,7 @@ class CurrentWeatherCard extends ConsumerWidget {
                             height: 8,
                           ),
                           Text(
-                            "${_todayWeather.humidity} %",
+                            "${_currentWeather.humidity} %",
                             style: const TextStyle(
                                 fontSize: 12.0, fontWeight: FontWeight.bold),
                           ),
@@ -231,7 +231,7 @@ class CurrentWeatherCard extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           WindIcon(
-                            degree: num.parse("${_todayWeather.windDeg}"),
+                            degree: num.parse("${_currentWeather.windDeg}"),
                             color: _theme.iconTheme.color,
                             size: 24.0,
                           ),
@@ -243,7 +243,7 @@ class CurrentWeatherCard extends ConsumerWidget {
                             height: 8,
                           ),
                           Text(
-                            "${_todayWeather.windSpeed} m/s",
+                            "${_currentWeather.windSpeed} m/s",
                             style: const TextStyle(
                                 fontSize: 12.0, fontWeight: FontWeight.bold),
                           ),
@@ -289,7 +289,7 @@ class CurrentWeatherCard extends ConsumerWidget {
                             height: 8,
                           ),
                           Text(
-                            "${_todayWeather.pressure} hPa",
+                            "${_currentWeather.pressure} hPa",
                             style: const TextStyle(
                                 fontSize: 12.0, fontWeight: FontWeight.bold),
                           ),
@@ -371,7 +371,7 @@ class CurrentWeatherCard extends ConsumerWidget {
                             height: 8,
                           ),
                           Text(
-                            "${_todayWeather.uvi}",
+                            "${_currentWeather.uvi}",
                             style: const TextStyle(
                                 fontSize: 12.0, fontWeight: FontWeight.bold),
                           ),

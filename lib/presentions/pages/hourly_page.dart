@@ -1,5 +1,4 @@
 import 'package:basic_utils/basic_utils.dart';
-import 'package:ethio_weather/domain/model/open_weather_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -7,6 +6,8 @@ import 'package:weather_icons/weather_icons.dart';
 
 import '../../app/config.dart';
 import '../../domain/model/hourly_forecast.dart';
+import '../../domain/model/open_weather_map.dart';
+
 import '../providers/providers.dart';
 import '../styles/colors.dart';
 import '../widgets/no_internet_connection_card.dart';
@@ -295,6 +296,8 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
 
     final _internetConnected = ref.watch(connectionStateProvider);
 
+    final _userLocation = ref.watch(userLocationProvider);
+
     final Color _titleColor = _theme.brightness == Brightness.light
         ? lPrimaryTextColor
         : dPrimaryTextColor;
@@ -306,9 +309,16 @@ class _HourlyPageState extends ConsumerState<HourlyPage>
     // Reloads the weather data when connection is available
     if (_internetConnected) {
       if (_hourlyItems.isEmpty) {
+        final apiOneCallUrl = Uri.https(Config.apiBaseUrl, 'data/2.5/onecall', {
+          'lat': _userLocation.latitude.toString(),
+          'lon': _userLocation.longitude.toString(),
+          'appid': Config.appId,
+          'units': 'metric',
+          'lang': 'en',
+        });
         ref
             .read(openWeatherMapNotifierProvider.notifier)
-            .getWeather(Config.apiOneCallUrl.toString());
+            .getWeather(apiOneCallUrl.toString());
 
         final _openWeatherMap = ref.watch(openWeatherMapNotifierProvider);
 
