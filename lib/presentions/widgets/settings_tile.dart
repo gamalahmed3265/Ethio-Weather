@@ -58,11 +58,11 @@ class SettingsTile extends ConsumerWidget {
         elevation: 4.0,
         margin: const EdgeInsets.symmetric(vertical: 8.0),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(2.0),
         ),
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(2.0),
               color: Colors.transparent),
           child: SwitchListTile(
             secondary: leading,
@@ -83,11 +83,11 @@ class SettingsTile extends ConsumerWidget {
         elevation: 4.0,
         margin: const EdgeInsets.symmetric(vertical: 8.0),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
+          borderRadius: BorderRadius.circular(2.0),
         ),
         child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(2.0),
               color: Colors.transparent),
           child: ListTile(
             title: Text(title, style: TextStyle(color: titleColor)),
