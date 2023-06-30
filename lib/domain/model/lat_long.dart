@@ -1,6 +1,6 @@
-class LatLng {
+class LatLong {
   final double latitude;
   final double longitude;
 
-  LatLng(this.latitude, this.longitude);
+  LatLong(this.latitude, this.longitude);
 }

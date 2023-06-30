@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' show get;
 
-import '../models/open_weather_map.dart';
+import '../../../domain/model/open_weather_map.dart';
 
 abstract class WeatherRepository {
   Future<OpenWeatherMap> fetchWeatherData(String url);

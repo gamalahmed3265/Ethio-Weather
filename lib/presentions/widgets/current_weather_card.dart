@@ -1,15 +1,16 @@
 import 'package:basic_utils/basic_utils.dart';
-import 'package:ethio_weather/src/models/current_weather.dart';
-import 'package:ethio_weather/src/models/daily_forecast.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_icons/weather_icons.dart';
 
-import '../locales/app_localizations.dart';
+import '../../data/data_source/local/weather_description_locales.dart';
+import '../../domain/locales/app_localizations.dart';
+import '../../domain/model/current_weather.dart';
+import '../../domain/model/daily_forecast.dart';
 import '../providers/providers.dart';
-import '../services/weather_description_locales.dart';
 
 class CurrentWeatherCard extends ConsumerWidget {
   final CurrentWeather _currentWeather;

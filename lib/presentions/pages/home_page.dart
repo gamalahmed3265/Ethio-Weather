@@ -1,9 +1,9 @@
-import 'package:ethio_weather/src/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../locales/app_localizations.dart';
+import '../../domain/locales/app_localizations.dart';
 import '../providers/providers.dart';
+import '../resource/router.dart';
 import '../styles/colors.dart';
 
 class HomePage extends ConsumerStatefulWidget {

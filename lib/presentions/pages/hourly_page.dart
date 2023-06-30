@@ -1,14 +1,14 @@
 import 'package:basic_utils/basic_utils.dart';
-import 'package:ethio_weather/src/models/open_weather_map.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_icons/weather_icons.dart';
 
-import '../locales/app_localizations.dart';
-import '../models/hourly_forecast.dart';
+import '../../data/data_source/local/weather_description_locales.dart';
+import '../../domain/locales/app_localizations.dart';
+import '../../domain/model/hourly_forecast.dart';
+import '../../domain/model/open_weather_map.dart';
 import '../providers/providers.dart';
-import '../services/weather_description_locales.dart';
 import '../styles/colors.dart';
 import '../widgets/no_internet_connection_card.dart';
 

@@ -1,7 +1,7 @@
-import 'package:ethio_weather/src/locales/supported_locale.dart';
 import 'package:flutter/material.dart';
 
-import '../locales/app_locale.dart';
+import '../../domain/locales/app_locale.dart';
+import '../../domain/locales/supported_locale.dart';
 import '../utils/lang_util.dart';
 
 class LanguageNotifier extends ChangeNotifier {

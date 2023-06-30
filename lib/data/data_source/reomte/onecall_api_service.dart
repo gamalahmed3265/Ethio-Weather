@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:ethio_weather/src/services/dio_client.dart';
 
-import '../config.dart';
-import '../models/lat_long.dart';
-import '../models/open_weather_map.dart';
+import '../../../app/config.dart';
+import '../../../domain/model/lat_long.dart';
+import '../../../domain/model/open_weather_map.dart';
+
+import 'dio_client.dart';
 
 class OneCallApiService {
   final _apiOneCall = DioClient.create();

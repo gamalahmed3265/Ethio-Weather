@@ -1,8 +1,8 @@
-import 'package:ethio_weather/src/models/lat_long.dart';
 import 'package:flutter/cupertino.dart';
 
-import '../models/user_location.dart';
-import '../services/location_service.dart';
+import '../../data/data_source/reomte/location_service.dart';
+import '../../domain/model/lat_long.dart';
+import '../../domain/model/user_location.dart';
 
 class LocationNotifier extends ChangeNotifier {
   UserLocation _userLocation = UserLocation(LatLong(8.9, 38.0), "Unknown");

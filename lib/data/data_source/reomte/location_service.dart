@@ -1,8 +1,8 @@
-import 'package:ethio_weather/src/models/user_location.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 
-import '../models/lat_long.dart';
+import '../../../domain/model/lat_long.dart';
+import '../../../domain/model/user_location.dart';
 
 class LocationService {
   Future<LatLong> getUserCurrentLocation() async {

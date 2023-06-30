@@ -1,10 +1,10 @@
-import 'package:ethio_weather/src/pages/hourly_page.dart';
 import 'package:flutter/material.dart';
 
-import 'pages/home_page.dart';
-import 'pages/settings_page.dart';
-import 'pages/today_page.dart';
-import 'pages/weekly_page.dart';
+import '../pages/home_page.dart';
+import '../pages/hourly_page.dart';
+import '../pages/settings_page.dart';
+import '../pages/today_page.dart';
+import '../pages/weekly_page.dart';
 
 const String homePageRoute = "Home";
 const String todayPageRoute = "Today";

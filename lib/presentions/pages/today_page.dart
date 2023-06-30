@@ -1,10 +1,10 @@
-import 'package:ethio_weather/src/widgets/hourly_fromnow_weather_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../providers/providers.dart';
 import '../styles/colors.dart';
 import '../widgets/current_weather_card.dart';
+import '../widgets/hourly_fromnow_weather_card.dart';
 import '../widgets/no_internet_connection_card.dart';
 
 class TodayPage extends ConsumerStatefulWidget {

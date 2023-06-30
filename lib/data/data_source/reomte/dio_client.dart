@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:ethio_weather/src/config.dart';
+
+import '../../../app/config.dart';
 
 class DioClient {
   static Dio create() {

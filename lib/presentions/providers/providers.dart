@@ -1,9 +1,9 @@
-import 'package:ethio_weather/src/providers/language_notifier.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import './connection_notifier.dart';
 import './onecall_weather_notifier.dart';
 import './theme_notifier.dart';
+import 'language_notifier.dart';
 import 'location_notifier.dart';
 
 final themeChangeNotifierProvider = ChangeNotifierProvider((ref) {

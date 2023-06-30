@@ -1,6 +1,4 @@
-import 'package:ethio_weather/src/pages/open_licenses_page.dart';
-import 'package:ethio_weather/src/pages/privacy_page.dart';
-import 'package:ethio_weather/src/utils/string_constant.dart';
+import 'package:ethio_weather/presentions/pages/privacy_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,14 +6,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:weather_icons/weather_icons.dart';
 
-import '../locales/app_locale.dart';
-import '../locales/app_localizations.dart';
+import '../../domain/locales/app_locale.dart';
+import '../../domain/locales/app_localizations.dart';
+
 import '../providers/providers.dart';
 import '../styles/colors.dart';
 import '../styles/theme_scheme.dart';
 import '../utils/lang_util.dart';
+import '../utils/string_constant.dart';
 import '../widgets/labeled_radio.dart';
 import '../widgets/settings_tile.dart';
+import 'open_licenses_page.dart';
 
 class SettingsPage extends ConsumerStatefulWidget {
   final String title;

@@ -1,6 +1,5 @@
+import 'package:ethio_weather/domain/locales/app_localizations.dart';
 import 'package:flutter/material.dart';
-
-import '../locales/app_localizations.dart';
 
 class WeatherDescriptionLocales {
   BuildContext context;

@@ -1,9 +1,9 @@
-import 'package:ethio_weather/src/utils/string_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../providers/providers.dart';
 import '../styles/colors.dart';
+import '../utils/string_constant.dart';
 
 class OpenLicensesPage extends ConsumerWidget {
   const OpenLicensesPage({Key? key}) : super(key: key);

@@ -1,6 +1,8 @@
-class LatLong {
-  final double latitude;
-  final double longitude;
+import 'lat_long.dart';
 
-  LatLong(this.latitude, this.longitude);
+class UserLocation {
+  final LatLong latLong;
+  final String address;
+
+  UserLocation(this.latLong, this.address);
 }

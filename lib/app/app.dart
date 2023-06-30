@@ -1,12 +1,12 @@
-import 'package:ethio_weather/src/router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'locales/app_locale.dart';
-import 'locales/app_localizations_delegate.dart';
-import 'providers/providers.dart';
-import 'utils/lang_util.dart';
+import '../domain/locales/app_locale.dart';
+import '../domain/locales/app_localizations_delegate.dart';
+import '../presentions/providers/providers.dart';
+import '../presentions/resource/router.dart';
+import '../presentions/utils/lang_util.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 class EthioWeatherApp extends ConsumerStatefulWidget {
   const EthioWeatherApp({Key? key}) : super(key: key);
