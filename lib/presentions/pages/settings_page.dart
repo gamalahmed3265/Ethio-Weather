@@ -1,3 +1,4 @@
+import 'package:ethio_weather/src/pages/open_licenses_page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -321,7 +322,11 @@ class _SettingsPageState extends ConsumerState<SettingsPage>
                 Icons.collections_bookmark,
                 color: _theme.iconTheme.color,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context) =>
+                        const OpenLicensesPage()));
+              },
             ),
           ],
         ),
