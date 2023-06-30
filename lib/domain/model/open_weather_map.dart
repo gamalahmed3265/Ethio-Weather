@@ -29,16 +29,20 @@ class OpenWeatherMap {
         ? CurrentWeather.fromJson(json['current'])
         : null;
     if (json['hourly'] != null) {
-      hourly = <HourlyForecast>[];
-      json['hourly'].forEach((v) {
-        hourly!.add(HourlyForecast.fromJson(v));
-      });
+      hourly = HourlyForecast.listFromJson(json['hourly']);
+
+      //hourly = <HourlyForecast>[];
+      //json['hourly'].forEach((v) {
+      //  hourly!.add(HourlyForecast.fromJson(v));
+      //});
     }
     if (json['daily'] != null) {
-      daily = <DailyForecast>[];
-      json['daily'].forEach((v) {
-        daily!.add(DailyForecast.fromJson(v));
-      });
+      daily = DailyForecast.listFromJson(json['daily']);
+
+      //daily = <DailyForecast>[];
+      //json['daily'].forEach((v) {
+      //  daily!.add(DailyForecast.fromJson(v));
+      //});
     }
   }
 }

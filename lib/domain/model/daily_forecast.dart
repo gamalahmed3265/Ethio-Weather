@@ -81,4 +81,7 @@ class DailyForecast {
         json["rain"] is int ? (json['rain'] as int).toDouble() : json['rain'];
     uvi = json["uvi"] is int ? (json['uvi'] as int).toDouble() : json['uvi'];
   }
+
+  static List<DailyForecast> listFromJson(List<dynamic> list) =>
+      List<DailyForecast>.from(list.map((x) => DailyForecast.fromJson(x)));
 }
