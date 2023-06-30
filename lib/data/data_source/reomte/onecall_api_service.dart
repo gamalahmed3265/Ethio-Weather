@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import '../../../app/config.dart';
 import '../../../domain/model/lat_long.dart';
 import '../../../domain/model/open_weather_map.dart';
-
 import 'dio_client.dart';
 
 class OneCallApiService {
@@ -29,7 +28,7 @@ class OneCallApiService {
         return OpenWeatherMap.fromJson(response.data);
       }
       return Future.error('Failed to Open Weather data');
-    } on DioError catch (e) {
+    } on DioError {
       throw Exception("DioError: Failed to Open Weather data");
     }
   }
