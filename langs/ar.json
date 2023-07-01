@@ -1,0 +1,83 @@
+{
+    "tab_label_today": "اليوم",
+    "tab_label_hourly": "الساعة",
+    "tab_label_weekly": "أسبوعيا",
+    "tab_label_settings": "الإعدادات",
+
+    "label_precipitation": "الهطول",
+    "label_pressure": "الضغط",
+    "label_humidity": "الرطوبة",
+    "label_wind": "الرياح",
+    "label_visibility": "الرؤية",
+    "label_uvi": "UV مؤشر",
+    "label_feels_like": "أشعر مثل",
+
+    "label_temp": "درجة الحرارة",
+    "label_time_format": "تنسيق الوقت",
+    "label_weather_units": "وحدات الطقس",
+
+
+    "rain_label_light": "أمطار خفيفة",
+    "rain_label_moderate": "أمطار معتدلة",
+    "rain_label_heavy_intensity": "أمطار شديدة الغزارة",
+    "rain_label_very_heavy": "أمطار غزيرة جدا",
+    "rain_label_extreme": "أمطار غزيرة",
+    "rain_label_freezing": "أمطار متجمدة",
+    "rain_label_light_intensity_shower": "مطر غزير خفيف الشدة",
+    "rain_label_shower": "المطر الهاطل",
+    "rain_label_heavy_intensity_shower": "أمطار غزيرة كثيفة",
+    "rain_label_ragged_shower": "المطر الوعر",
+
+    "sky_label_clear_sky": "سماء صافية",
+
+    "cloud_label_few_clouds": "عدد قليل من السحب",
+    "cloud_label_scattered_clouds": "غيوم متفرقة",
+    "cloud_label_broken_clouds": "الغيوم المكسورة",
+    "cloud_label_overcast_clouds": "غيوم غائمة",
+
+    "thunderstorm_label_with_light_rain": "عاصفة رعدية مع مطر خفيف",
+    "thunderstorm_label_with_rain": "عاصفة رعدية مع مطر",
+    "thunderstorm_label_with_heavy_rain": "عاصفة رعدية مع أمطار غزيرة",
+    "thunderstorm_label_light": "ضوء العواصف الرعدية",
+    "thunderstorm_label_thunderstorm": "عاصفة رعدية",
+    "thunderstorm_label_heavy": "عاصفة رعدية ثقيلة",
+    "thunderstorm_label_ragged": "عاصفة رعدية خشنة",
+    "thunderstorm_label_with_light_drizzle": "عاصفة رعدية مع رذاذ خفيف",
+    "thunderstorm_label_with_drizzle": "عاصفة رعدية مع رذاذ",
+    "thunderstorm_label_with_heavy_drizzle": "عاصفة رعدية مع رذاذ كثيف",
+
+    "drizzle_label_light_intensity": "رذاذ من شدة الضوء",
+    "drizzle_label_drizzle": "الرذاذ",
+    "drizzle_label_heavy_intensity": "تسمية الكثافة الثقيلة",
+    "drizzle_label_light_intensity_rain": "رذاذ المطر خفيف الشدة",
+    "drizzle_label_rain": "المطر الرذاذ",
+    "drizzle_label_heavy_intensity_rain": "أمطار رذاذ كثيفة",
+    "drizzle_label_shower_rain": "المطر المطر والرذاذ",
+    "drizzle_label_heavy_shower_rain": "الأمطار الغزيرة والرذاذ",
+    "drizzle_label_shower": "رذاذ الدش",
+
+    "snow_label_light_snow": "الثلج الخفيف",
+    "snow_label_snow": "الثلج",
+    "snow_label_heavy_snow": "ثقيلة الآن",
+    "snow_label_sleet": "جليد",
+    "snow_label_light_shower_sleet": "صقيع دش خفيف",
+    "snow_label_shower_sleet": "صقيع الدش",
+    "snow_label_light_rain_and_snow": "أمطار خفيفة وثلوج",
+    "snow_label_rain_and_snow": "المطر والثلج",
+    "snow_label_light_shower_snow": "ثلج المطر الخفيف",
+    "snow_label_shower_snow": "تساقط الثلج",
+    "snow_label_heavy_shower_snow": "تساقط الثلوج بكثافة",
+
+    "atmosphere_label_mist": "خطأ",
+    "atmosphere_label_smoke": "دخان",
+    "atmosphere_label_haze": "الضباب",
+    "atmosphere_label_dust_whirls": "دوامات الغبار",
+    "atmosphere_label_fog": "الضباب",
+    "atmosphere_label_sand": "الرمال",
+    "atmosphere_label_dust": "الغبار",
+    "atmosphere_label_volcanic_ash": "الرماد البركاني",
+    "atmosphere_label_squalls": "العواصف",
+    "atmosphere_label_tornado": "الإعصار"
+
+
+}

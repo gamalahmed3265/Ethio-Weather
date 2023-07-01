@@ -11,15 +11,17 @@ class AppLocale {
 
   final List<String> supportedLanguages = [
     "English",
+    "العربية",
     "አማርኛ",
     "ትግሪኛ",
     "Afaan Oromoo"
   ];
 
-  final List<String> supportedLanguagesCodes = ["en", "am", "tg", "or"];
+  final List<String> supportedLanguagesCodes = ["en", "ar", "am", "tg", "or"];
 
   final Map<String, String> supportedLanguageMap = {
     "en": "English",
+    "ar": "العربية",
     "am": "አማርኛ",
     "tg": "ትግሪኛ",
     "or": "Afaan Oromoo",

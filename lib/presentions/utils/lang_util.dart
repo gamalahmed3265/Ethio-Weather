@@ -13,6 +13,9 @@ class LangUtil {
       case "am":
         locale = const Locale('am');
         break;
+      case "ar":
+        locale = const Locale('ar');
+        break;
       case "tg":
         locale = const Locale('tg');
         break;
